@@ -1,0 +1,76 @@
+<html>
+    <head>
+     <style>
+         div{
+             display: flex;
+             align-self: center;
+             align-items: center;
+             width: 50%;
+         }
+         body{
+            
+            padding-left: 30%;
+            padding-right: 20%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: grey;           
+         }
+         .outerbox
+              {
+                  border: 3px solid black;
+                  display: flex;
+                  flex-direction: column;
+                  padding: 50px;
+                  background-color: rgb(247, 231, 236);
+              }
+              .niceButton{
+            color: white;
+            background: #4d4d4d;
+            padding: 7px 27px;
+	     
+        }
+
+     </style>
+     
+               
+    </head>
+           <body><br><br><br><br><br>
+            <h1 style="align-items: center; padding-left: 30px;">
+                AGE CALCULATOR
+	    </h1><br><br><br>
+               <div class="outerbox">
+                 
+                
+                <form>
+                    <label>Date of Birth</label>
+                    <input type="date" id="dateofbirth" name="dob" placeholder="YYYYMMDD"><br>
+                
+                    <button class="niceButton" type="button" onclick="calc_age()">Submit!</button>
+                    <p>Your Age <input id="answer"></p>
+                    
+                
+                    
+                    
+                        
+                </form>
+            </div>
+                <script>
+                    function calc_age() { 
+                       let a= new Date(document.getElementById("dateofbirth").value);
+                       console.log(a);
+                     //  var dob = a;
+            var year = a.getFullYear();
+            var month = a.getMonth()+1;
+            var day = a.getDate();
+           // console.log(day);
+            var today = new Date();
+            var age = today.getFullYear() - year;
+            if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+            age--;
+            }
+            console.log(age);
+            //window.alert(age);
+            document.getElementById("answer").value= age; 
+                    }
+                    </script>
+           </body>
+    </html>
